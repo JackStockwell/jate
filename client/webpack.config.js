@@ -18,9 +18,28 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // Generates HTML file, injects our bundles 
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'J.A.T.E'
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js'
+      }),
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        orientation: 'portrait',
+        display: 'standalone',
+        start_url: './',
+        description: 'A text editor, just another infact.',
+        background_color: '#222'
+      })
       
     ],
-
     module: {
       rules: [
         
