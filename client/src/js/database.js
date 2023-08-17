@@ -1,7 +1,10 @@
 import { openDB } from 'idb';
 
 const initdb = async () =>
+  // Make a new database call jate
   openDB('jate', 1, {
+
+    // Add our database schema if for initialisation.
     upgrade(db) {
       if (db.objectStoreNames.contains('jate')) {
         console.log('jate database already exists');
