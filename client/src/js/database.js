@@ -21,9 +21,9 @@ export const putDb = async (content) => {
 
     // CREATE method for indexedDB
     const jateDb = await openDB('jate', 1);
-    const tx = jateDb.transaction('contact', 'readwrite');
+    const tx = jateDb.transaction('jate', 'readwrite');
     const store = tx.objectStore('jate');
-    const request = store.add(content);
+    const request = store.add({text: content});
     const result = await request;
     return result;
 };
@@ -33,7 +33,7 @@ export const getDb = async () => {
 
     // GET method for indexedDB
     const jateDb = await openDB('jate', 1);
-    const tx = jateDb.transaction('contact', 'read');
+    const tx = jateDb.transaction('jate', 'readonly');
     const store = tx.objectStore('jate');
     const request = store.getAll();
     const result = await request;
