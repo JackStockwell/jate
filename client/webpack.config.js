@@ -20,10 +20,12 @@ module.exports = () => {
         template: './index.html',
         title: 'J.A.T.E'
       }),
+      // Inject customer service worker
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js'
       }),
+      // New PWA manifest
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
