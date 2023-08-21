@@ -7,17 +7,14 @@ const initdb = async () =>
     // Add our database schema if for initialisation.
     upgrade(db) {
       if (db.objectStoreNames.contains('jate')) {
-        console.log('jate database already exists');
         return;
       }
       db.createObjectStore('jate', { keyPath: 'id' });
-      console.log('jate database created');
     },
   });
 
 // UPDATE METHOD
 export const putDb = async (content) => {
-    console.log('Adding text', content);
 
     // UPDATE method for indexedDB
     const jateDb = await openDB('jate', 1);
