@@ -31,8 +31,8 @@ module.exports = () => {
         short_name: 'J.A.T.E',
         orientation: 'portrait',
         display: 'standalone',
-        start_url: './',
-        publicPath: './',
+        start_url: '/',
+        publicPath: '/',
         description: 'A text editor, just another infact.',
         background_color: '#222',
         icons: [
